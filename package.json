@@ -1,0 +1,30 @@
+{
+	"name": "vbb-graph",
+	"description": "Berlin & Brandenburg public transport as JSON graph.",
+	"version": "0.1.0",
+	"files": [
+		"nodes.js",
+		"edges.js"
+	],
+	"keywords": [
+		"vbb",
+		"public transport",
+		"graph",
+		"jgf",
+		"ndjson",
+		"json"
+	],
+	"author": "Jannis R <mail@jannisr.de>",
+	"homepage": "https://github.com/derhuerst/vbb-graph",
+	"repository": "derhuerst/vbb-graph",
+	"bugs": "https://github.com/derhuerst/vbb-graph/issues",
+	"license": "ISC",
+	"devDependencies": {
+		"generate-vbb-graph": "^0.1.1"
+	},
+	"scripts": {
+		"build": "generate-vbb-graph -p suburban,subway,regional,tram,ferry,bus",
+		"test": "node test.js",
+		"prepublishOnly": "npm run build && npm test"
+	}
+}
