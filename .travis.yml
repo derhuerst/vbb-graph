@@ -7,3 +7,17 @@ node_js:
 script:
   - npm run build
   - npm test
+after_script:
+  - ls -lh nodes.ndjson edges.ndjson
+before_deploy:
+  - rm .gitignore # see https://docs.travis-ci.com/user/deployment/npm/#Note-on-.gitignore
+  - npm i semver
+  - npm version --force $(./node_modules/.bin/semver -i minor $(npm info vbb-graph version))
+deploy:
+  provider: npm
+  on:
+    branch: master
+    node: stable
+  email: 'mail@jannisr.de'
+  api_key: ${NPM_KEY}
+  skip_cleanup: true

@@ -3,8 +3,8 @@
 	"description": "Berlin & Brandenburg public transport as JSON graph.",
 	"version": "0.1.0",
 	"files": [
-		"nodes.js",
-		"edges.js"
+		"nodes.ndjson",
+		"edges.ndjson"
 	],
 	"keywords": [
 		"vbb",
