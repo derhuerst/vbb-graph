@@ -20,11 +20,14 @@
 	"bugs": "https://github.com/derhuerst/vbb-graph/issues",
 	"license": "ISC",
 	"devDependencies": {
-		"generate-vbb-graph": "^0.1.1"
+		"generate-vbb-graph": "^0.1.1",
+		"ndjson": "^1.5.0",
+		"tape": "^4.6.3",
+		"tap-min": "^1.2.1"
 	},
 	"scripts": {
 		"build": "generate-vbb-graph -p suburban,subway,regional,tram,ferry,bus",
-		"test": "node test.js",
+		"test": "node test.js | tap-min",
 		"prepublishOnly": "npm run build && npm test"
 	}
 }
