@@ -21,6 +21,15 @@ The npm package contains two files `nodes.ndjson` & `edges.ndjson`. As the readm
 
 > This tool generates data in the [JSON Graph Format](https://github.com/jsongraph/json-graph-specification/blob/master/README.rst#json-graph-specification). Note that instead of storing all nodes and edges in one JSON file, **it will create `nodes.ndjson` and `edges.ndjson`. These are [ndjson](http://ndjson.org)-encoded lists of all nodes and edges**, respectively.
 
+```js
+const ndjson = require('ndjson')
+
+fs.createReadStream(require.resolve('vbb-graph/nodes.ndjson'))
+.pipe(ndjson.parse())
+.on('error', console.error)
+.on('data', console.log)
+```
+
 
 ## Contributing
 
